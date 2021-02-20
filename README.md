@@ -1,3 +1,3 @@
 # SDSSharingServicePicker
 
-A description of this package.
+NSSharingServicePicker wrapped with NSViewRepresentable for SwiftUI
