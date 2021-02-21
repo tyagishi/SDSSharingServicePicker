@@ -24,9 +24,10 @@ public struct SDSSharingServicePicker : NSViewRepresentable {
     public func makeNSView(context: Context) -> NSButton {
         let button = NSButton()
         button.image = NSImage(systemSymbolName: "square.and.arrow.up", accessibilityDescription: "share")
-        //button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        //button.frame = CGRect(x: 0, y: 0, width: 230, height: 230)
         //button.isBordered = true
         button.wantsLayer = true
+        button.cell?.isBezeled = true
         button.layer?.backgroundColor = NSColor.white.cgColor
         button.layer?.cornerRadius = 5
         button.layer?.borderWidth = 1
