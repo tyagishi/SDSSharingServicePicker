@@ -5,8 +5,8 @@
 
 NSSharingServicePicker wrapped with NSViewRepresentable with Button for SwiftUI
 
+![SDSSharingServicePicker](https://user-images.githubusercontent.com/6419800/108616507-3d9ffc00-7451-11eb-92ff-7785065855b1.gif)
 <!-- 
-![text](URL)
 note: can use not only png but also gif 
 -->
 
