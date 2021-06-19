@@ -6,8 +6,10 @@
 //
 
 import Foundation
-import AppKit
 import SwiftUI
+
+#if os(macOS)
+import AppKit
 
 public typealias SharingServiceItemProvider = ()->[Any]
 public typealias SharingServicePickerCompletion = (NSSharingService?) -> Void
@@ -69,4 +71,4 @@ public struct SDSSharingServicePicker : NSViewRepresentable {
     
     public typealias NSViewType = NSButton
 }
-
+#endif
