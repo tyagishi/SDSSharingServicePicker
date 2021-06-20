@@ -29,28 +29,11 @@ public struct SDSActivityView: UIViewControllerRepresentable {
 
     public func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
         print("SDSActivityView#updateUIViewController")
-        uiViewController.title = "updated"
+//        uiViewController.title = "updated"
 //        uiViewController.userActivity
-        //vc = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
+//        vc = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
     }
     
-    public class Coordinator {
-        var parent:SDSActivityView
-        init(_ parent: SDSActivityView) {
-            self.parent = parent
-        }
-        
-//        func itemsConfiguration() -> UIActivityItemsConfiguration {
-//            //UIActivityItemsConfiguration(objects: )
-//        }
-        
-    }
-
-    public func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-    
-
     public typealias UIViewControllerType = UIActivityViewController
 }
 
