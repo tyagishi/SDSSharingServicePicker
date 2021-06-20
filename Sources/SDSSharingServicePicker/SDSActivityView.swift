@@ -12,8 +12,9 @@ import SwiftUI
 import UIKit
 
 public struct SDSActivityView: UIViewControllerRepresentable {
-    let activityItems:[Any]
-    let applicationActivities:[UIActivity]?
+    //var vc: UIActivityViewController? = nil
+    var activityItems:[Any]
+    var applicationActivities:[UIActivity]?
 
     public init(isPresented: Binding<Bool>, activityItems: [Any], applicationActivities:[UIActivity]? = nil) {
         self.activityItems = activityItems
@@ -28,7 +29,27 @@ public struct SDSActivityView: UIViewControllerRepresentable {
 
     public func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
         print("SDSActivityView#updateUIViewController")
+        uiViewController.title = "updated"
+//        uiViewController.userActivity
+        //vc = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
     }
+    
+    public class Coordinator {
+        var parent:SDSActivityView
+        init(_ parent: SDSActivityView) {
+            self.parent = parent
+        }
+        
+//        func itemsConfiguration() -> UIActivityItemsConfiguration {
+//            //UIActivityItemsConfiguration(objects: )
+//        }
+        
+    }
+
+    public func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+    
 
     public typealias UIViewControllerType = UIActivityViewController
 }
