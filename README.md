@@ -36,6 +36,6 @@ URL: https://github.com/tyagishi/SDSSharingServicePicker
 macOS 11
 
 ## TODO
-[ ] make custom point for button appearance
+- [ ] make custom point for button appearance
 
 ## Note
