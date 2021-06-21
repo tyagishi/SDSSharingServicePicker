@@ -28,9 +28,7 @@ public struct SDSActivityView: UIViewControllerRepresentable {
     }
 
     public func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
-//        uiViewController.title = "updated"
-//        uiViewController.userActivity
-//        vc = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
+        print("SDSActivityView#updateUIViewController")
     }
     
     public typealias UIViewControllerType = UIActivityViewController
@@ -65,7 +63,6 @@ public final class ShareImage: NSObject, UIActivityItemSource {
         metadata.title = title
         if let url = itemURL {
             metadata.iconProvider = NSItemProvider.init(contentsOf: url)
-            //metadata.imageProvider = NSItemProvider.init(contentsOf: url)
         }
         return metadata
     }
