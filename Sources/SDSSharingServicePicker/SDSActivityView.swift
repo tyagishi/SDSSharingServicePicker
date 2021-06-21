@@ -10,6 +10,7 @@ import SwiftUI
 
 #if os(iOS)
 import UIKit
+import LinkPresentation
 
 public struct SDSActivityView: UIViewControllerRepresentable {
     //var vc: UIActivityViewController? = nil
@@ -33,5 +34,41 @@ public struct SDSActivityView: UIViewControllerRepresentable {
     }
     
     public typealias UIViewControllerType = UIActivityViewController
+}
+
+public final class ShareImage: NSObject, UIActivityItemSource {
+    private let title: String
+    private let item: UIImage?
+    private let itemURL: URL?
+    public init(title: String, _ item: UIImage?) {
+        self.item = item
+        self.title = title
+        
+        if let data = item?.jpegData(compressionQuality: 1.0) {
+            let saveDir = FileManager.default.temporaryDirectory.appendingPathComponent("shareimage.jpg")
+            print(saveDir)
+            try? data.write(to: saveDir)
+            self.itemURL = saveDir
+        } else {
+            self.itemURL = nil
+        }
+        
+    }
+    public func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        return item as Any
+    }
+    public func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        return activityViewControllerPlaceholderItem(activityViewController)
+    }
+    
+    public func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
+        let metadata = LPLinkMetadata()
+        metadata.title = title
+        if let url = itemURL {
+            metadata.iconProvider = NSItemProvider.init(contentsOf: url)
+            //metadata.imageProvider = NSItemProvider.init(contentsOf: url)
+        }
+        return metadata
+    }
 }
 #endif
