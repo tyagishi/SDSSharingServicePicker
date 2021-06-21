@@ -46,7 +46,6 @@ public final class ShareImage: NSObject, UIActivityItemSource {
         
         if let data = item?.jpegData(compressionQuality: 1.0) {
             let saveDir = FileManager.default.temporaryDirectory.appendingPathComponent("shareimage.jpg")
-            print(saveDir)
             try? data.write(to: saveDir)
             self.itemURL = saveDir
         } else {
