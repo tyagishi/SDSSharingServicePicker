@@ -13,7 +13,6 @@ import UIKit
 import LinkPresentation
 
 public struct SDSActivityView: UIViewControllerRepresentable {
-    //var vc: UIActivityViewController? = nil
     var activityItems:[Any]
     var applicationActivities:[UIActivity]?
 
